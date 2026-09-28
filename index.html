@@ -102,14 +102,14 @@
   <!-- 👇 PUT YOUR PHOTO HERE: save your picture next to this file as "our-photo.jpg"
        (or change the file name below). If it's missing, a heart shows instead. -->
   <div class="photo">
-    <img src="IMG_20260921_163741.jpg" alt="Us together"
-         onerror="this.remove(); this.parentNode.innerHTML='<span class=&quot;placeholder&quot;>♥</span>'">
+    <img src="our-photo.jpg" alt="Us together"
+         onerror="var p=this.parentNode; p.innerHTML='<span class=&quot;placeholder&quot;>&#9829;</span>';">
   </div>
 
-  <h1>Happy to have you, Lab</h1>
-  <p class="message" id="message">Click the button. May sasabihin ako. </p>
+  <h1>Happy to have you, Love</h1>
+  <p class="message" id="message">Click the button. I have something to tell you.</p>
 
-  <button class="love-btn" id="btn">Tap if you love me</button>
+  <button class="love-btn" id="btn" type="button" onclick="sendLove()">Tap if you love me</button>
   <p class="count" id="count"></p>
 </main>
 
@@ -117,15 +117,13 @@
   // ✏️ EDIT THESE MESSAGES to say what you want
   const messages = [
     "You are my favorite person in the whole world.",
-    "Masaya ako pag magkasama tayo kahit saed na ang pera.",
-    "I miss you already.",
+    "Every day with you feels like my best day.",
+    "You make ordinary moments feel special.",
     "I'm so lucky it's you.",
     "Home is wherever you are.",
-    "I love you so much my love."
-    "Will you marry me someday?" 
+    "I love you more than words can say."
   ];
 
-  const btn = document.getElementById("btn");
   const msg = document.getElementById("message");
   const count = document.getElementById("count");
   let taps = 0;
@@ -142,7 +140,7 @@
     setTimeout(() => h.remove(), 5500);
   }
 
-  btn.addEventListener("click", () => {
+  function sendLove() {
     msg.style.opacity = 0;
     setTimeout(() => {
       msg.textContent = messages[taps % messages.length];
@@ -151,7 +149,7 @@
       count.textContent = "Love sent " + taps + (taps === 1 ? " time" : " times");
     }, 200);
     for (let i = 0; i < 14; i++) setTimeout(spawnHeart, i * 70);
-  });
+  }
 </script>
 </body>
 </html>
